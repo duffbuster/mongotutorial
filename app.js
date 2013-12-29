@@ -71,5 +71,21 @@ app.get('api/products/:id', function(req, res) {
 	});
 });
 
+// UPDATE a single product by ID
+app.put('/api/products/:id', function(req, res) {
+	return ProductModel.findById(req.params.id, function(err, product) {
+		product.title = req.body.title;
+		product.description = req.body.description;
+		product.style = req.body.style;
+		return product.save(function(err) {
+			if(!err)
+				console.log("updated");
+			else
+				console.log(err);
+			return res.send(products);
+		});
+	});
+});
+
 // Launch server
 app.listen(4242);
