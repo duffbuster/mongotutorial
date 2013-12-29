@@ -87,5 +87,19 @@ app.put('/api/products/:id', function(req, res) {
 	});
 });
 
+// DELETE a single product by ID
+app.delete('/api/products/:id', function(req, res) {
+	return ProductModel.findById(req.params.id, function(err, product) {
+		return product.remove(function(err) {
+			if(!err) {
+				console.log("removed");
+				return res.send('');
+			}
+			else
+				console.log(err);
+		});
+	});
+});
+
 // Launch server
 app.listen(4242);
