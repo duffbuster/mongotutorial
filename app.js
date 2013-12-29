@@ -42,7 +42,24 @@ app.get('api/products', function(req, res) {
 	});
 });
 
-
+// CREATE a single product
+app.post('/api/products', function(req, res) {
+	var product;
+	console.log("POST: ");
+	console.log(req.body);
+	product = new ProductModel({
+		title: req.body.title,
+		description: req.body.description,
+		style: req.body.style
+	});
+	product.save(function(err) {
+		if(!err)
+			return console.log("Created");
+		else
+			return console.log(err);
+	});
+	return  res.send(product);
+});
 
 // Launch server
 app.listen(4242);
