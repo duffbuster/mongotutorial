@@ -26,6 +26,8 @@ var Product = new Schema({
     modified: { type: Date, default: Date.now }
 });
 
+var ProductModel = mongoose.model('Product', Product);
+
 app.get('/api', function(req, res) {
 	res.send('Ecomm API is running');
 });
