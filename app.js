@@ -1,12 +1,12 @@
-var application_root = _dirname,
+var application_root = 'mongotutorial',
 	express = require("express"),
 	path = require("path"),
 	mongoose = require('mongoose');
 
-var app = express.createServer();
+var app = express();
 
 // Database
-mongoose.connect('mongodc://localhost/ecomm_database');
+mongoose.connect('mongodb://localhost/ecomm_database');
 
 // Config
 app.configure(function() {
