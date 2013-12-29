@@ -61,5 +61,15 @@ app.post('/api/products', function(req, res) {
 	return  res.send(product);
 });
 
+// READ a single product by ID
+app.get('api/products/:id', function(req, res) {
+	return ProductModel.findById(req.params.id, function(err, product) {
+		if(!err)
+			return res.send(product);
+		else
+			return console.log(err);
+	});
+});
+
 // Launch server
 app.listen(4242);
