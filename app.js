@@ -32,5 +32,17 @@ app.get('/api', function(req, res) {
 	res.send('Ecomm API is running');
 });
 
+// READ a list of products
+app.get('api/products', function(req, res) {
+	return ProductModel.find(function(err, products) {
+		if(!err)
+			return res.send(products);
+		else
+			return console.log(err);
+	});
+});
+
+
+
 // Launch server
 app.listen(4242);
