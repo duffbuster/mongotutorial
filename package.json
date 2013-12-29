@@ -1,0 +1,25 @@
+{
+  "name": "mongotutorial",
+  "version": "0.0.0",
+  "description": "Tutorial from http://pixelhandler.com/blog/2012/02/09/develop-a-restful-api-using-node-js-with-express-and-mongoose/",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~3.4.7",
+    "path": "~0.4.9",
+    "mongoose": "~3.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duffbuster/mongotutorial.git"
+  },
+  "author": "Colin Mackey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duffbuster/mongotutorial/issues"
+  },
+  "homepage": "https://github.com/duffbuster/mongotutorial"
+}
