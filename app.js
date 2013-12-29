@@ -17,6 +17,15 @@ app.configure(function() {
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true}));
 });
 
+var Schema = mongoose.Schema;
+
+var Product = new Schema({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    style: { type: String, unique: true },
+    modified: { type: Date, default: Date.now }
+});
+
 app.get('/api', function(req, res) {
 	res.send('Ecomm API is running');
 });
