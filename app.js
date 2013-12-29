@@ -32,16 +32,6 @@ app.get('/api', function(req, res) {
 	res.send('Ecomm API is running');
 });
 
-// READ a list of products
-app.get('api/products', function(req, res) {
-	return ProductModel.find(function(err, products) {
-		if(!err)
-			return res.send(products);
-		else
-			return console.log(err);
-	});
-});
-
 // CREATE a single product
 app.post('/api/products', function(req, res) {
 	var product;
@@ -61,16 +51,6 @@ app.post('/api/products', function(req, res) {
 	return  res.send(product);
 });
 
-// READ a single product by ID
-app.get('api/products/:id', function(req, res) {
-	return ProductModel.findById(req.params.id, function(err, product) {
-		if(!err)
-			return res.send(product);
-		else
-			return console.log(err);
-	});
-});
-
 // UPDATE a single product by ID
 app.put('/api/products/:id', function(req, res) {
 	return ProductModel.findById(req.params.id, function(err, product) {
@@ -84,6 +64,26 @@ app.put('/api/products/:id', function(req, res) {
 				console.log(err);
 			return res.send(products);
 		});
+	});
+});
+
+// READ a list of products
+app.get('api/products', function(req, res) {
+	return ProductModel.find(function(err, products) {
+		if(!err)
+			return res.send(products);
+		else
+			return console.log(err);
+	});
+});
+
+// READ a single product by ID
+app.get('api/products/:id', function(req, res) {
+	return ProductModel.findById(req.params.id, function(err, product) {
+		if(!err)
+			return res.send(product);
+		else
+			return console.log(err);
 	});
 });
 
